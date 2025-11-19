@@ -32,3 +32,15 @@ variable "automount_service_account_token" {
     description = "Enable automatic mounting of the service account token"
     default = true
 }
+
+variable "roles" {
+    type = list(string)
+    description = "Roles to bind to the service account"
+    default = []
+}
+
+variable "cluster_roles" {
+    type = list(string)
+    description = "Cluster roles to bind to the service account"
+    default = []
+}

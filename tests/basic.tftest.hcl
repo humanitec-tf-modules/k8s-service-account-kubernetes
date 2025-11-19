@@ -13,6 +13,9 @@ run "sa_with_name" {
     namespace = "default"
     name = "fizzybuzzy"
     automount_service_account_token = false
+    
+    roles = ["admin"]
+    cluster_roles = ["cluster-admin"]
   }
 
   assert {
