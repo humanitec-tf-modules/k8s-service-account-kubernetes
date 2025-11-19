@@ -15,22 +15,18 @@ This can optionally provision role and cluster-role bindings for the service acc
 
 ## Installation
 
-Install this with the `hctl` CLI, you should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes; and replace the `CHANGEME` in module inputs with the real target namespace.
+Install this with the `hctl` CLI, you should replace the `CHANGEME` in the module source with the latest release tag, replace the `CHANGEME` in the provider mapping with your real provider type and alias for Kubernetes.
 
 ```shell
 hctl create module \
     --set=resource_type=score-workload \
     --set=module_source=git::https://github.com/humanitec-tf-modules/k8s-service-account-kubernetes?ref=CHANGEME \
     --set=provider_mapping='{"kubernetes": "CHANGEME"}' \
-    --set=module_inputs='{"namespace": "CHANGEME"}'
-```
-
-The `namespace` is a required input. You can set it to a constant or configure a module dependency to pull it from elsewhere in the graph:
-
-```shell
-    --set=dependencies='{"ns":{"type":"k8s-namespace"}}'
+    --set=dependencies='{"ns":{"type":"k8s-namespace","id":"env-namespace"}}' \
     --set=module_inputs='{"namespace": "${resources.ns.outputs.name}"}'
 ```
+
+The `namespace` is a required input. You can set it to a constant or configure a module dependency to pull it from elsewhere in the graph as in the example above.
 
 You can also use any of the input parameters described further down this document to modify the behavior.
 
