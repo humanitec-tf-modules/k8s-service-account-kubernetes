@@ -10,7 +10,7 @@ This can optionally provision role and cluster-role bindings for the service acc
 2. There must be a resource type setup for `k8s-service-account`, for example:
 
     ```shell
-    hctl create resource-type k8s-service-account --set=description='Kubernetes Service Account' --set=output_schema='{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}'
+    hctl create resource-type k8s-service-account --set=description='Kubernetes Service Account' --set=output_schema='{"type":"object","required":["name","namespace"],"properties":{"name":{"type":"string"},"namespace":{"type":"string"}}}'
     ```
 
 ## Installation

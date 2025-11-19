@@ -10,3 +10,8 @@ output "name" {
   description = "The name of the service account"
   value       = kubernetes_service_account_v1.sa.metadata[0].name
 }
+
+output "namespace" {
+  description = "The namespace of the service account"
+  value       = var.namespace
+}
