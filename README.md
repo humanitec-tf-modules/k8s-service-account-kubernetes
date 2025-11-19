@@ -67,8 +67,8 @@ No modules.
 | <a name="input_additional_labels"></a> [additional\_labels](#input\_additional\_labels) | Additional labels to add to the service account. | `map(string)` | `{}` | no |
 | <a name="input_automount_service_account_token"></a> [automount\_service\_account\_token](#input\_automount\_service\_account\_token) | Enable automatic mounting of the service account token | `bool` | `true` | no |
 | <a name="input_cluster_roles"></a> [cluster\_roles](#input\_cluster\_roles) | Cluster roles to bind to the service account | `list(string)` | `[]` | no |
-| <a name="input_name"></a> [name](#input\_name) | The name of the service account to create. Should not be set if name\_prefix is set. | `string` | `null` | no |
-| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name. Cannot be set if name is set. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | The explicit name of the service account to create. | `string` | `null` | no |
+| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name. | `string` | `"sa-"` | no |
 | <a name="input_namespace"></a> [namespace](#input\_namespace) | The namespace to create the service account in. | `string` | n/a | yes |
 | <a name="input_roles"></a> [roles](#input\_roles) | Roles to bind to the service account | `list(string)` | `[]` | no |
 
