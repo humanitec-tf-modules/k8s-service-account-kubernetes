@@ -35,11 +35,15 @@ You can also use any of the input parameters described further down this documen
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_kubernetes"></a> [kubernetes](#requirement\_kubernetes) | >= 2.0.0 |
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_kubernetes"></a> [kubernetes](#provider\_kubernetes) | 2.38.0 |
 
 ## Modules
 
@@ -47,13 +51,29 @@ No modules.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [kubernetes_cluster_role_binding_v1.crb](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/cluster_role_binding_v1) | resource |
+| [kubernetes_role_binding_v1.rb](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/role_binding_v1) | resource |
+| [kubernetes_service_account_v1.sa](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/service_account_v1) | resource |
 
 ## Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_additional_annotations"></a> [additional\_annotations](#input\_additional\_annotations) | Additional annotations to add to the service account. | `map(string)` | `{}` | no |
+| <a name="input_additional_labels"></a> [additional\_labels](#input\_additional\_labels) | Additional labels to add to the service account. | `map(string)` | `{}` | no |
+| <a name="input_automount_service_account_token"></a> [automount\_service\_account\_token](#input\_automount\_service\_account\_token) | Enable automatic mounting of the service account token | `bool` | `true` | no |
+| <a name="input_cluster_roles"></a> [cluster\_roles](#input\_cluster\_roles) | Cluster roles to bind to the service account | `list(string)` | `[]` | no |
+| <a name="input_name"></a> [name](#input\_name) | The name of the service account to create. Should not be set if name\_prefix is set. | `string` | `null` | no |
+| <a name="input_name_prefix"></a> [name\_prefix](#input\_name\_prefix) | The name prefix to use for generate\_name. Cannot be set if name is set. | `string` | `null` | no |
+| <a name="input_namespace"></a> [namespace](#input\_namespace) | The namespace to create the service account in. | `string` | n/a | yes |
+| <a name="input_roles"></a> [roles](#input\_roles) | Roles to bind to the service account | `list(string)` | `[]` | no |
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_humanitec_metadata"></a> [humanitec\_metadata](#output\_humanitec\_metadata) | Metadata for Humanitec. |
+| <a name="output_name"></a> [name](#output\_name) | The name of the service account |
 <!-- END_TF_DOCS -->
