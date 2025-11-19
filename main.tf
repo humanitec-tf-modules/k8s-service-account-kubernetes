@@ -13,8 +13,10 @@ resource "kubernetes_role_binding_v1" "rb" {
   for_each = toset(var.roles)
 
   metadata {
-    generate_name = "${kubernetes_service_account_v1.sa.metadata[0].name}-bind-"
-    namespace     = var.namespace
+    name        = "${kubernetes_service_account_v1.sa.metadata[0].name}-${each.key}"
+    annotations = var.additional_annotations
+    labels      = var.additional_labels
+    namespace   = var.namespace
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
@@ -32,8 +34,10 @@ resource "kubernetes_role_binding_v1" "crb" {
   for_each = toset(var.cluster_roles)
 
   metadata {
-    generate_name = "${kubernetes_service_account_v1.sa.metadata[0].name}-bind-"
-    namespace     = var.namespace
+    name        = "${kubernetes_service_account_v1.sa.metadata[0].name}-${each.key}"
+    annotations = var.additional_annotations
+    labels      = var.additional_labels
+    namespace   = var.namespace
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"
