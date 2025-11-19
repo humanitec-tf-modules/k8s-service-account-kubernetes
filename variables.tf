@@ -3,21 +3,16 @@ variable "namespace" {
   description = "The namespace to create the service account in."
 }
 
-variable "name" {
-  type        = string
-  description = "The name of the service account to create. Should not be set if name_prefix is set."
-  default     = null
-}
-
 variable "name_prefix" {
   type        = string
-  description = "The name prefix to use for generate_name. Cannot be set if name is set."
-  default     = null
+  description = "The name prefix to use for generate_name."
+  default     = "sa-"
+}
 
-  validation {
-    condition     = (var.name != null && var.name_prefix == null) || (var.name == null && var.name_prefix != null)
-    error_message = "Exactly one of 'name' or 'name_prefix' must be set, not both."
-  }
+variable "name" {
+  type        = string
+  description = "The explicit name of the service account to create."
+  default     = null
 }
 
 variable "additional_annotations" {
