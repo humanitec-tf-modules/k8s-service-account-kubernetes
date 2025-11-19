@@ -10,11 +10,11 @@ run "sa_with_name" {
     additional_labels = {
       mylabel = "label-value"
     }
-    namespace = "default"
-    name = "fizzybuzzy"
+    namespace                       = "default"
+    name                            = "fizzybuzzy"
     automount_service_account_token = false
-    
-    roles = ["admin"]
+
+    roles         = ["admin"]
     cluster_roles = ["cluster-admin"]
   }
 
@@ -54,7 +54,7 @@ run "sa_with_name_prefix" {
     additional_labels = {
       mylabel = "label-value"
     }
-    namespace = "default"
+    namespace   = "default"
     name_prefix = "fizzybuzzy"
   }
 
