@@ -1,1 +1,34 @@
-# TF variables go here
+variable "namespace" {
+    type = string
+    description = "The namespace to create the service account in."
+}
+
+variable "name" {
+  type        = string
+  description = "The name of the service account to create. Should not be set if name_prefix is set."
+  default     = null
+}
+
+variable "name_prefix" {
+  type        = string
+  description = "The name prefix to use for generate_name. Cannot be set if name is set."
+  default     = null
+}
+
+variable "additional_annotations" {
+  type        = map(string)
+  description = "Additional annotations to add to the service account."
+  default     = {}
+}
+
+variable "additional_labels" {
+  type        = map(string)
+  description = "Additional labels to add to the service account."
+  default     = {}
+}
+
+variable "automount_service_account_token" {
+    type = bool
+    description = "Enable automatic mounting of the service account token"
+    default = true
+}
