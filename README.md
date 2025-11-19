@@ -74,4 +74,5 @@ No modules.
 |------|-------------|
 | <a name="output_humanitec_metadata"></a> [humanitec\_metadata](#output\_humanitec\_metadata) | Metadata for Humanitec. |
 | <a name="output_name"></a> [name](#output\_name) | The name of the service account |
+| <a name="output_namespace"></a> [namespace](#output\_namespace) | The namespace of the service account |
 <!-- END_TF_DOCS -->
