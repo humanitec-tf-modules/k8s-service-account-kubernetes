@@ -8,5 +8,5 @@ output "humanitec_metadata" {
 
 output "name" {
   description = "The name of the service account"
-  value       = var.name != null ? var.name : kubernetes_service_account_v1.sa.metadata[0].name
+  value       = kubernetes_service_account_v1.sa.metadata[0].name
 }
