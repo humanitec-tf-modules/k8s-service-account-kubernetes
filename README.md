@@ -2,7 +2,7 @@
 
 This is a Terraform / OpenTofu compatible module to be used to provision `k8s-service-account` resources on top of Kubernetes for the Humanitec Orchestrator.
 
-This can optionally provision role and cluster-role bindings for the service account without depending on other modules.
+This can optionally provision role and cluster-role bindings for the service account without depending on other modules. These are always scoped to the namespace. You will need to use a separate module if you wish to bind cluster role bindings at a cluster level.
 
 ## Requirements
 

@@ -28,11 +28,12 @@ resource "kubernetes_role_binding_v1" "rb" {
   }
 }
 
-resource "kubernetes_cluster_role_binding_v1" "crb" {
+resource "kubernetes_role_binding_v1" "crb" {
   for_each = toset(var.cluster_roles)
 
   metadata {
     generate_name = "${kubernetes_service_account_v1.sa.metadata[0].name}-bind-"
+    namespace     = var.namespace
   }
   role_ref {
     api_group = "rbac.authorization.k8s.io"

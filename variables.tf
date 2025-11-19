@@ -41,6 +41,6 @@ variable "roles" {
 
 variable "cluster_roles" {
   type        = list(string)
-  description = "Cluster roles to bind to the service account"
+  description = "Cluster roles to bind to the service account and scoped to the namespace"
   default     = []
 }
