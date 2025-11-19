@@ -13,6 +13,11 @@ variable "name_prefix" {
   type        = string
   description = "The name prefix to use for generate_name. Cannot be set if name is set."
   default     = null
+
+  validation {
+    condition     = (var.name != null && var.name_prefix == null) || (var.name == null && var.name_prefix != null)
+    error_message = "Exactly one of 'name' or 'name_prefix' must be set, not both."
+  }
 }
 
 variable "additional_annotations" {
